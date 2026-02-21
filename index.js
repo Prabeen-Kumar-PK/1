@@ -212,28 +212,66 @@
 
 
 // fake API delay 
-function fakeApiCall(endpoint) {
-    const apiData = {
-        user: ["Harsh", "Sambit", "Samay", "Salman"],
-        post: ["Hey champ", "Herapherry", "Live your life", "You & Me"]
-    }
-    let delay = Math.random() * 2000 + 1000
+// function fakeApiCall(endpoint) {
+//     const apiData = {
+//         user: ["Harsh", "Sambit", "Samay", "Salman"],
+//         post: ["Hey champ", "Herapherry", "Live your life", "You & Me"]
+//     }
+//     let delay = Math.random() * 2000 + 1000
 
-    return new Promise((res, rej) => {
-        setTimeout(() => {
-            res(apiData[endpoint])
-        }, delay)
-    })
-}
+//     return new Promise((res, rej) => {
+//         setTimeout(() => {
+//             res(apiData[endpoint])
+//         }, delay)
+//     })
+// }
 
-fakeApiCall("user").then(
-    (data) => {
-        console.log(data)
-    }
-)
+// fakeApiCall("user").then(
+//     (data) => {
+//         console.log(data)
+//     }
+// )
 
-fakeApiCall("post").then(
-    (data) => {
-        console.log(data)
-    }
-)
+// fakeApiCall("post").then(
+//     (data) => {
+//         console.log(data)
+//     }
+// )
+
+// fetch
+// github api
+
+
+// fetch("https://picsum.photos/200/300").then(
+//     (res) => {
+//         return res.json()
+//     }
+// ).then(
+//     (data) => {
+//         console.log(data)
+//     }
+// ).catch(
+//     (err) => {
+//         console.log(err)
+//     }
+// )
+
+// easy way or simpler format
+
+
+let btn = document.querySelector("button")
+let box = document.querySelector("#data")
+
+btn.addEventListener("click", () => {
+    setTimeout(() => {
+        let mydata = fetch("https://api.github.com/users/Prabeen-Kumar-PK")
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+
+        box.innerHTML = mydata
+            
+        });
+    }, 2000)
+
+
